@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	$(".brew-square").on("click", function(event){
 		var brewId = this.id;
-		$(".show-locations").empty()
+		$(".show-details").empty()
 		requestBrewInfo(brewId);
 		requestLocationInfo(brewId);
 		modal.style.display = "block";
@@ -74,7 +74,7 @@ requestLocationInfo = function(brewId) {
 	}).done(function(response){
 		locationsArray = JSON.parse(response.replace(/&quot;/g,'"'));
 
-		// $(".show-details").append("<h2>Locations</h2>")
+		$(".show-details").append("<h2>Locations</h2>")
 		
 		for(i=0; i < locationsArray.length; i++){
 			$(".show-details").append("<p class='l-name'>" + locationsArray[i].name + "</p>")
