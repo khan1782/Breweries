@@ -76,10 +76,10 @@ test:
 # You can use this database configuration with:
 #
 #   production:
-#     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
   <<: *default
   database: beer_production
   username: beer
   password: <%= ENV['BEER_DATABASE_PASSWORD'] %>
+  url: <%= ENV[' postgresql://db_beer:746ad7b64abffe5eb1768c24c180e3d9fe6ea7ad94c95c9eb656f58f1739d9b8@postgres:5432/db_beer'] %>
