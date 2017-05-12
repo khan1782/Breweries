@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	$(".brew-square").on("click", function(event){
 		var brewId = this.id;
+		$(".show-locations").empty()
 		requestBrewInfo(brewId);
+		requestLocationInfo(brewId);
 		modal.style.display = "block";
 	});
 
@@ -33,7 +35,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	        modal.style.display = "none";
 	    }
 	}
-	console.log("hello")
+
+// 	$(".brew-square").hover(function(){
+		
+// 		$(this).children("img").height(230)
+// 		$(this).children("img").width(230)
+// 	}, function(){
+// 		$(this).children("img").height(200)
+// 		$(this).children("img").width(200)
+// 	})
+// 	console.log("hello")
 });
 
 
@@ -46,15 +57,33 @@ requestBrewInfo = function(brewId) {
     url: '/breweries/' + brewId + ".json",
     type: 'GET'
   }).done(function(response){
-  	debugger
-  	console.log(response.facebook)
     $(".show-name").text(response.name)
     $(".show-photo").attr("src", response.photo)
-    $(".show-website").text(response.website)
+    $("#website-link").attr("href", response.website)
     $("#twitter-link").attr("href", response.twitter)
     $("#facebook-link").attr("href", response.facebook)
     $("#instagram-link").attr("href", response.instagram)
+    $(".show-description").text(response.description)
   });
 };
 
+requestLocationInfo = function(brewId) {
+	$.ajax({
+		url: '/locations/' + brewId,
+		type: 'GET'
+	}).done(function(response){
+		locationsArray = JSON.parse(response.replace(/&quot;/g,'"'));
+		$(".show-locations").append("<h2>Locations</h2>")
+		for(i=0; i < locationsArray.length; i++){
+			$(".show-locations").append("<p class='l-name'>" + locationsArray[i].name + "</p>")
+
+
+
+
+			$(".show-locations").append("<p>" + locationsArray[i].street + "<br>" + locationsArray[i].city + "<br>" + locationsArray[i].state)
+
+		}
+			$(".show-locations").append("<h2>Events</h2>")
+	});
+}
 

@@ -12,8 +12,19 @@ array_of_breweries.each do |brew|
 	new_brewery.website = brew[:website]
 	new_brewery.photo = brew[:photo][:url]
 	new_brewery.description = brew[:text_description]
-
-
+	new_brewery.facebook = brew[:facebook]
 	new_brewery.save
+
+	brew[:locations].each do |location|
+		new_location = Location.new
+		new_location.name = location[:name]
+		new_location.uuid = location[:uuid]
+		new_location.street = location[:street]
+		new_location.city = location[:city]
+		new_location.state = location[:state]
+		new_location.brewery_id = new_brewery.id
+		new_location.save
+	end
+
 
 end
