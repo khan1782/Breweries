@@ -1,0 +1,33 @@
+
+<h1 id='main-title'>Breweries</h1>
+
+  <div id='list-of-brews'>
+    <% @breweries.each do |brewery| %>
+      
+      <div class='brew-square' id='<%= brewery.id %>'>
+        <header class='brew-name'><%= brewery.name %></header>
+        <img src="<%= brewery.photo %> " height="200px" width="200px">
+      </div>
+    
+    <% end %>
+  </div>
+  
+
+<div id="myModal" class="modal">
+  
+  <div class="modal-content">
+    <span class="close">&times;</span> 
+    <div class="brew-details">
+      <header class='show-name'></header>
+      <p class='show-website'></p>
+      <a id="twitter-link" href="">Twitter</a>
+      <a id="facebook-link" href="">Facebook</a>
+      <a id="instagram-link" href="">Instagram</a>
+      <br>
+      <img src="" height="420px" width="420px" class="show-photo">
+    </div>
+  </div>
+
+</div>
+
+
