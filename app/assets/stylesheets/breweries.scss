@@ -68,8 +68,8 @@
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
-    height: 600px;
-    width: 1111px;
+    height: 700px;
+    width: 1400px;
 
 }
 
@@ -103,31 +103,53 @@
 
 
 .show-name {
-	font-size: 20px;
+	margin-top:15px;
+	font-size: 30px;
 	margin-left: 20px;
-	margin-bottom: 50px
+	margin-bottom: 50px;
+	text-align: center;
 }
 
 
 .links {
 	font-size: 14px;
 	margin-left: 20px;	
+	text-align: center;		
 }
 
-.brew-details {
-	height: 575px;
-	display: inline-block;
-	float: left;
-}
 
 .show-details {
-	margin-left: 20px;
+	height: 700px;
 	display: inline-block;
-	width: 600px;
-	float: right;
-	/*height: 575px;*/
+	float: left;
+	width: 300px;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+
+.event-details,
+.brew-details {
+	height: 700px;
+	display: inline-block;
+	float: left;
+	width: 420px;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+
+.l-address {
+	font-size: 14px;
+	margin: 5px;
+	margin-left: 0px;
 }
 
 .l-name {
 	font-size: 18px;
+	margin-left: 0px;
+}
+
+.links a {
+	margin-right: 30px;
 }

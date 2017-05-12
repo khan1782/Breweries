@@ -73,17 +73,19 @@ requestLocationInfo = function(brewId) {
 		type: 'GET'
 	}).done(function(response){
 		locationsArray = JSON.parse(response.replace(/&quot;/g,'"'));
-		$(".show-locations").append("<h2>Locations</h2>")
+
+		// $(".show-details").append("<h2>Locations</h2>")
+		
 		for(i=0; i < locationsArray.length; i++){
-			$(".show-locations").append("<p class='l-name'>" + locationsArray[i].name + "</p>")
+			$(".show-details").append("<p class='l-name'>" + locationsArray[i].name + "</p>")
 
 
 
 
-			$(".show-locations").append("<p>" + locationsArray[i].street + "<br>" + locationsArray[i].city + "<br>" + locationsArray[i].state)
+			$(".show-details").append("<p class='l-address'>" + locationsArray[i].street + "<br>" + locationsArray[i].city + "<br>" + locationsArray[i].state)
 
 		}
-			$(".show-locations").append("<h2>Events</h2>")
+			
 	});
 }
 
