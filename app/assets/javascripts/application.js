@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		$(".show-details").empty()
 		requestBrewInfo(brewId);
 		requestLocationInfo(brewId);
+		requestEventInfo(brewId);
 		modal.style.display = "block";
 	});
 
@@ -78,10 +79,6 @@ requestLocationInfo = function(brewId) {
 		
 		for(i=0; i < locationsArray.length; i++){
 			$(".show-details").append("<p class='l-name'>" + locationsArray[i].name + "</p>")
-
-
-
-
 			$(".show-details").append("<p class='l-address'>" + locationsArray[i].street + "<br>" + locationsArray[i].city + "<br>" + locationsArray[i].state)
 
 		}
@@ -89,3 +86,11 @@ requestLocationInfo = function(brewId) {
 	});
 }
 
+requestEventInfo = function(brewId) {
+	$.ajax({
+		url: '/events/' + brewId,
+		type: 'GET'
+	}).done(function(response){
+		debugger
+	})
+}
